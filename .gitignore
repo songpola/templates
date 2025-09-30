@@ -1,0 +1,2 @@
+# Exclude template lock files
+flake.lock
