@@ -14,6 +14,10 @@
           path = ./rust-eframe;
           description = "Based on emilk/eframe_template, with flake-parts and oxalica/rust-overlay";
         };
+        typst = {
+          path = ./typst;
+          description = "Typst development environment (using loqusion/typix)";
+        };
       };
     };
 }
