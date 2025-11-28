@@ -5,19 +5,32 @@
       url = "github:nix-community/flakelight";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    typix = {
-      url = "github:loqusion/typix";
+    press = {
+      url = "github:RossSmyth/press";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
   outputs =
-    { flakelight, typix, ... }@inputs:
+    { flakelight, press, ... }@inputs:
     flakelight ./. {
       inherit inputs;
+      withOverlays = [ press.overlays.default ];
+      package =
+        pkgs:
+        # https://github.com/RossSmyth/press/blob/main/template/flake.nix
+        pkgs.buildTypstDocument {
+          name = "document";
+          src = ./src;
+        };
       devShell =
-        { inputs', ... }@pkgs:
-        inputs'.typix.lib.devShell {
-          # https://loqusion.github.io/typix/api/derivations/dev-shell.html
+        pkgs: with pkgs; {
+          inputsFrom = [ outputs'.packages.default ];
+          stdenv = stdenvNoCC;
+          packages = [
+            just # Task runner
+            tinymist # LSP
+            typstyle # Formatter
+          ];
         };
     };
 }

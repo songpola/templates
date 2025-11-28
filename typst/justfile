@@ -1,0 +1,2 @@
+build PKG="default" NAME=PKG:
+  nix build .#{{PKG}} -o out/{{NAME}}.pdf

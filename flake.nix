@@ -16,7 +16,7 @@
         };
         typst = {
           path = ./typst;
-          description = "Typst development environment (using loqusion/typix)";
+          description = "Typst development environment (using RossSmyth/press)";
         };
       };
     };
