@@ -5,6 +5,10 @@
     { ... }:
     {
       templates = {
+        default = {
+          path = ./default;
+          description = "A basic development environment template using flakelight";
+        };
         rust = {
           path = ./rust;
           description = "Rust development environment (using oxalica/rust-overlay)";
