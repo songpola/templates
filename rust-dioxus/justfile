@@ -1,0 +1,10 @@
+set shell := ["nu", "-c"]
+
+serve:
+    dx serve
+
+build:
+    dx build
+
+doc:
+    cargo doc --open
