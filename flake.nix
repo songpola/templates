@@ -16,6 +16,18 @@
         rust-dioxus = {
           path = ./rust-dioxus;
           description = "Rust Dioxus development environment";
+          welcomeText = ''
+            - `cargo init`: Initialize a new Rust project in the current directory.
+            - `cargo add dioxus`: Add Dioxus to the project dependencies.
+            - `dx doctor`: To check the version of currently installed wasm-bindgen-cli.
+            - `cargo add wasm-bindgen@=<version>`: Pin wasm-bindgen to the same version as the output of `dx doctor`. (Replace `<version>` with the version number).
+            - Add these features to Cargo.toml:
+              ```
+              [features]
+              default = ["web"]
+              web = ["dioxus/web"]
+              ```
+          '';
         };
         rust-eframe = {
           path = ./rust-eframe;
