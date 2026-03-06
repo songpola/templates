@@ -13,9 +13,13 @@
           path = ./rust;
           description = "Rust development environment (using oxalica/rust-overlay)";
         };
+        rust-dioxus = {
+          path = ./rust-dioxus;
+          description = "Rust Dioxus development environment";
+        };
         rust-eframe = {
           path = ./rust-eframe;
-          description = "Rust eframe template (based on emilk/eframe_template)";
+          description = "Rust eframe development environment (based on emilk/eframe_template)";
         };
         typst = {
           path = ./typst;
