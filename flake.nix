@@ -45,6 +45,10 @@
             - `pixi add python`: Add Python interpreter to the project.
           '';
         };
+        esp-idf = {
+          path = ./esp-idf;
+          description = "ESP-IDF development environment (using mirrexagon/nixpkgs-esp-dev)";
+        };
       };
     };
 }
