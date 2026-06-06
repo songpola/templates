@@ -1,5 +1,1 @@
-/.direnv
-
-# Pixi
-.pixi/*
-!.pixi/config.toml
+.direnv

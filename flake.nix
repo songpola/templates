@@ -39,6 +39,10 @@
         };
         python = {
           path = ./python;
+          description = "Python development environment (flake-parts)";
+        };
+        python-pixi = {
+          path = ./python-pixi;
           description = "Python development environment (using Pixi)";
           welcomeText = ''
             - `pixi init`: Initialize a new Pixi project in the current directory.

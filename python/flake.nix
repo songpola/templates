@@ -1,18 +1,25 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    flakelight = {
-      url = "github:nix-community/flakelight";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    flake-parts.url = "github:hercules-ci/flake-parts";
   };
+
   outputs =
-    { flakelight, ... }@inputs:
-    flakelight ./. {
-      inherit inputs;
-      devShell.packages =
-        pkgs: with pkgs; [
-          pixi
-        ];
+    inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" ];
+      perSystem =
+        { pkgs, ... }:
+        {
+          devShells.default = pkgs.mkShell {
+            packages = [
+              (pkgs.python3.withPackages (
+                ps: with ps; [
+
+                ]
+              ))
+            ];
+          };
+        };
     };
 }
