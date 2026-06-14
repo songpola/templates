@@ -58,6 +58,10 @@
           path = ./esp-idf;
           description = "ESP-IDF: mirrexagon/nixpkgs-esp-dev";
         };
+        esp-rs-nostd = {
+          path = ./esp-rs-nostd;
+          description = "Rust on ESP: no_std using leighleighleigh/esp-rs-nix";
+        };
       };
     };
 }
